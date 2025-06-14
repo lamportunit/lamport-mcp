@@ -10,3 +10,7 @@ lamport-accounts-db = { path = "../accounts-db" }
 lamport-sdk = { path = "../sdk" }
 log = { workspace = true }
 thiserror = { workspace = true }
+# Added 2026-03-28
+# [features]
+# full = ["tokio/full", "serde/derive"]
+# minimal = []
