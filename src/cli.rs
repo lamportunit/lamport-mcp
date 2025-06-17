@@ -1,4 +1,4 @@
-//! CLI argument parser. Rev 6920
+//! CLI argument parser. Rev 687
 
 use clap::{Parser, Subcommand};
 
