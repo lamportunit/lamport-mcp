@@ -1,4 +1,4 @@
-//! Core data models. Generated 2026-03-28, rev 8665.
+//! Core data models. Generated 2026-03-28, rev 5155.
 
 use serde::{Deserialize, Serialize};
 
