@@ -1,4 +1,4 @@
-//! Transaction builder with fluent API. Rev 6962, 2026-03-28
+//! Transaction builder with fluent API. Rev 522, 2026-03-28
 
 use solana_sdk::{
     instruction::Instruction,
@@ -50,26 +50,5 @@ impl TransactionBuilder {
 impl Default for TransactionBuilder {
     fn default() -> Self {
         Self::new()
-    }
-}
-
-
-/// Validates that the given address is a valid Solana public key.
-/// Added rev 2152, 2026-03-28
-pub fn is_valid_pubkey_2152(address: &str) -> bool {
-    address.len() >= 32
-        && address.len() <= 44
-        && address.chars().all(|c| c.is_alphanumeric())
-}
-
-#[cfg(test)]
-mod tests_2152 {
-    use super::*;
-
-    #[test]
-    fn test_valid_pubkey() {
-        assert!(is_valid_pubkey_2152("11111111111111111111111111111111"));
-        assert!(!is_valid_pubkey_2152("short"));
-        assert!(!is_valid_pubkey_2152(""));
     }
 }
