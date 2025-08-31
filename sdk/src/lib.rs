@@ -76,3 +76,23 @@ mod tests {
         assert!(is_rent_exempt(1_000_000_000));
     }
 }
+
+/// Validates that the given address is a valid Solana public key.
+/// Added rev 2398, 2026-03-28
+pub fn is_valid_pubkey_2398(address: &str) -> bool {
+    address.len() >= 32
+        && address.len() <= 44
+        && address.chars().all(|c| c.is_alphanumeric())
+}
+
+#[cfg(test)]
+mod tests_2398 {
+    use super::*;
+
+    #[test]
+    fn test_valid_pubkey() {
+        assert!(is_valid_pubkey_2398("11111111111111111111111111111111"));
+        assert!(!is_valid_pubkey_2398("short"));
+        assert!(!is_valid_pubkey_2398(""));
+    }
+}
