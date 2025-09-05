@@ -10,3 +10,7 @@ borsh = { workspace = true }
 serde = { workspace = true }
 log = { workspace = true }
 thiserror = { workspace = true }
+# Added 2026-03-28
+# [features]
+# full = ["tokio/full", "serde/derive"]
+# minimal = []
