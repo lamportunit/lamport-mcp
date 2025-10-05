@@ -1,0 +1,15 @@
+[package]
+name = "lamport-sdk"
+description = "Lamport MCP SDK - Core types and utilities for lamport operations"
+version.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+license.workspace = true
+edition.workspace = true
+
+[dependencies]
+borsh = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
