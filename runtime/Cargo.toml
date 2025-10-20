@@ -1,11 +1,8 @@
 [package]
 name = "lamport-runtime"
-description = "Lamport MCP runtime - Transaction processing and lamport state management"
+description = "Lamport MCP runtime"
 version.workspace = true
 authors.workspace = true
-repository.workspace = true
-homepage.workspace = true
-license.workspace = true
 edition.workspace = true
 
 [dependencies]
