@@ -15,3 +15,4 @@ pub fn lamports_to_sol(lamports: u64) -> f64 { lamports as f64 / LAMPORTS_PER_SO
 pub fn checked_add(a: u64, b: u64) -> Result<u64, LamportError> { a.checked_add(b).ok_or(LamportError::Overflow(a)) }
 pub fn checked_sub(a: u64, b: u64) -> Result<u64, LamportError> { a.checked_sub(b).ok_or(LamportError::InsufficientFunds { needed: b, available: a }) }
 // updated: 2025-10-23 08:38
+// updated: 2025-10-26 20:56
