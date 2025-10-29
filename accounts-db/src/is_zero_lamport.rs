@@ -1,37 +1,59 @@
+/// A trait to determine whether an account's balance is zero lamports.
+///
+/// In Solana's account model, a lamport is the smallest unit of SOL
+/// (1 SOL = 1,000,000,000 lamports). Accounts with zero lamports are
+/// considered "dead" and may be garbage collected by the runtime.
 pub trait IsZeroLamport {
     fn is_zero_lamport(&self) -> bool;
 }
 
+/// Represents lamport balance metadata for account state tracking.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LamportBalance {
     pub lamports: u64,
 }
 
 impl LamportBalance {
-    pub fn new(lamports: u64) -> Self { Self { lamports } }
-    pub fn zero() -> Self { Self { lamports: 0 } }
-    pub fn to_sol(&self) -> f64 { self.lamports as f64 / 1_000_000_000.0 }
+    pub fn new(lamports: u64) -> Self {
+        Self { lamports }
+    }
+
+    pub fn zero() -> Self {
+        Self { lamports: 0 }
+    }
+
+    pub fn to_sol(&self) -> f64 {
+        self.lamports as f64 / 1_000_000_000.0
+    }
 }
 
 impl IsZeroLamport for LamportBalance {
-    fn is_zero_lamport(&self) -> bool { self.lamports == 0 }
+    fn is_zero_lamport(&self) -> bool {
+        self.lamports == 0
+    }
 }
-// updated: 2025-10-29 14:46
-// updated: 2025-11-05 21:42
-// updated: 2025-11-06 11:13
-// updated: 2025-11-23 15:02
-// updated: 2025-11-27 11:24
-// updated: 2025-12-02 15:47
-// updated: 2025-12-10 20:26
-// updated: 2025-12-26 16:31
-// updated: 2025-12-29 08:48
-// updated: 2025-12-31 21:01
-// updated: 2026-01-02 18:11
-// updated: 2026-01-03 19:34
-// updated: 2026-01-05 16:55
-// updated: 2026-02-03 11:58
-// updated: 2026-02-10 19:00
-// updated: 2026-02-12 11:15
-// updated: 2026-03-04 14:21
-// updated: 2026-03-12 14:22
-// updated: 2026-03-13 21:46
-// updated: 2026-03-15 19:39
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_zero_lamport_balance() {
+        let balance = LamportBalance::zero();
+        assert!(balance.is_zero_lamport());
+        assert_eq!(balance.lamports, 0);
+    }
+
+    #[test]
+    fn test_nonzero_lamport_balance() {
+        let balance = LamportBalance::new(1_000_000_000);
+        assert!(!balance.is_zero_lamport());
+        assert_eq!(balance.to_sol(), 1.0);
+    }
+
+    #[test]
+    fn test_one_lamport() {
+        let balance = LamportBalance::new(1);
+        assert!(!balance.is_zero_lamport());
+    }
+}

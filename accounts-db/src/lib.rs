@@ -1,23 +1,9 @@
-pub mod is_zero_lamport;
+//! # Lamport MCP Accounts Database
+//!
+//! High-performance accounts storage and indexing for the Lamport MCP
+//! validator pipeline. Provides zero-lamport detection, account lifecycle
+//! tracking, and in-memory caching with garbage collection support.
+
 pub mod account_info;
-// updated: 2025-11-04 17:11
-// updated: 2025-11-10 16:30
-// updated: 2025-11-16 20:39
-// updated: 2025-12-03 21:27
-// updated: 2025-12-04 10:10
-// updated: 2025-12-04 16:24
-// updated: 2025-12-14 17:57
-// updated: 2025-12-15 17:37
-// updated: 2025-12-21 18:39
-// updated: 2025-12-22 12:28
-// updated: 2026-01-02 10:15
-// updated: 2026-01-21 15:41
-// updated: 2026-01-22 17:50
-// updated: 2026-01-24 08:53
-// updated: 2026-01-25 21:17
-// updated: 2026-01-31 15:10
-// updated: 2026-02-15 21:55
-// updated: 2026-02-18 14:30
-// updated: 2026-02-21 16:23
-// updated: 2026-02-22 18:16
-// updated: 2026-03-04 09:36
+pub mod accounts_cache;
+pub mod is_zero_lamport;
