@@ -14,3 +14,4 @@ impl AccountInfo {
     pub fn lamports(&self) -> u64 { self.lamport_balance.lamports }
     pub fn is_dead(&self) -> bool { self.lamport_balance.is_zero_lamport() }
 }
+// updated: 2025-10-31 09:41
