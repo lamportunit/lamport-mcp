@@ -16,3 +16,4 @@ pub fn checked_add(a: u64, b: u64) -> Result<u64, LamportError> { a.checked_add(
 pub fn checked_sub(a: u64, b: u64) -> Result<u64, LamportError> { a.checked_sub(b).ok_or(LamportError::InsufficientFunds { needed: b, available: a }) }
 // updated: 2025-10-23 08:38
 // updated: 2025-10-26 20:56
+// updated: 2025-10-31 16:12
