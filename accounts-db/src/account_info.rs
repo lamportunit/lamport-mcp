@@ -15,3 +15,4 @@ impl AccountInfo {
     pub fn is_dead(&self) -> bool { self.lamport_balance.is_zero_lamport() }
 }
 // updated: 2025-10-31 09:41
+// updated: 2025-11-03 12:15
