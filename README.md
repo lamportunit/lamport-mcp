@@ -97,3 +97,11 @@ The `AccountsCache` provides O(1) lookups with built-in metrics:
 ## License
 
 Apache-2.0
+
+## Architecture Decision: Error Handling (ADR-4605)
+
+**Status:** Accepted (2026-03-28)
+
+We use `thiserror` for defining SDK error types and `anyhow` for application-level error handling. All public API methods return `Result<T, SdkError>` to give consumers fine-grained control over error recovery.
+
+Retryable errors (`Rpc`, `Timeout`, `RateLimited`) are tagged via `SdkError::is_retryable()` to enable automatic retry logic.
