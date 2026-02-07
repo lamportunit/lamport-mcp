@@ -1,26 +1,31 @@
-[workspace]
-resolver = "2"
-members = [
-    "accounts-db",
-    "sdk",
-    "runtime",
-]
-
-[workspace.package]
-version = "2.2.0"
-authors = ["Lamport MCP Contributors"]
-repository = "https://github.com/lamportunit/lamport-mcp"
-homepage = "https://lamport.fun"
-license = "Apache-2.0"
+[package]
+name = "lamport-sdk"
+version = "0.1271.0"
 edition = "2021"
+authors = ["Lamport Contributors"]
+description = "Solana token launchpad SDK powered by Meteora DBC"
+license = "MIT"
+repository = "https://github.com/lamportfun/lamport-sdk-core"
 
-[workspace.dependencies]
-borsh = "1.5"
+[dependencies]
+solana-client = "1.18"
+solana-sdk = "1.18"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-thiserror = "2.0"
+tokio = { version = "1", features = ["full"] }
 log = "0.4"
-# Added 2026-03-28
-# [features]
-# full = ["tokio/full", "serde/derive"]
-# minimal = []
+env_logger = "0.11"
+thiserror = "1.0"
+anyhow = "1.0"
+clap = { version = "4", features = ["derive", "env"] }
+actix-web = "4"
+reqwest = { version = "0.12", features = ["json"] }
+
+[dev-dependencies]
+tokio-test = "0.4"
+mockall = "0.12"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
