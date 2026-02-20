@@ -1,5 +1,5 @@
 //! Rate limiting middleware using token bucket algorithm.
-//! Rev 3191, 2026-03-28
+//! Rev 9087, 2026-03-28
 
 use std::sync::{Arc, Mutex};
 use std::time::{Duration, Instant};
